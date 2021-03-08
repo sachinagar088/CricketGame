@@ -1,38 +1,37 @@
 package com.cricket;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+//Used for team creation
+public class TeamFactory {
 
-public class TeamCreation {
-
-    public static TeamCreation getInstance(){
-        return new TeamCreation();
+    //return teamFactory instance
+    public static TeamFactory getInstance(){
+        return new TeamFactory();
     }
-
-    public Team createTeam(int id){
-        System.out.println("\nEnter team "+id+" Details\n");
-        Scanner sc=new Scanner(System.in);
-        List<Player> pl= new ArrayList<>();
-        Team t=Team.getInstance();
-        System.out.println("Enter Team Name");
-        t.setTeamName(sc.next());
+    //return team object
+    public Team getTeams(int id){
+        Team team = Team.getInstance();
+        team.setTeamID(id);
+        createTeam(team);
+        return team;
+    }
+    public void createTeam(Team team){
+        System.out.println("Enter Team "+team.getTeamID()+" Details \n");
+        Input input = Input.getInstance();
+        team.setTeamName(input.getString("Enter Team Name"));
         for(int i=0;i<3;i++){
-            Player p= Player.getInstance();
-            System.out.println("Enter Player Id");
-            p.setPlayerId(sc.nextInt());
-            System.out.println("Enter Player Name");
-            p.setName(sc.next());
-            System.out.println("Enter Player Role");
-            p.setPlayerRole(sc.next());
-            p.setRunsScored(0);
-            p.setBallsTaken(0);
-            pl.add(p);
+            Player player = Player.getInstance();
+            player.setPlayerId(input.getInteger("Enter Player Id"));
+            player.setName(input.getString("Enter Player Name"));
+            player.setPlayerRole(input.getString("Enter Batsman or Bowler"));
+            if(player.getPlayerRole().equals("Bowler")){
+                Bowler bowler = Bowler.getInstance();
+                bowler.setName(player.getName());
+                bowler.setPlayerId(player.getPlayerId());
+                team.addBowler(bowler);
+            }
+            team.addPlayer(player);
         }
-        t.setTeamID(id);
-        t.setPlayers(pl);
-        t.setTotalWicketsFall(0);
-        t.setTeamScore(0);
-        return t;
+        team.setTotalWicketsFall(0);
+        team.setTeamScore(0);
     }
 }

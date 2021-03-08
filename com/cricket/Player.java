@@ -5,6 +5,16 @@ public class Player {
     private String name;
     private String playerRole;
     private int runsScored;
+    private int ballsTaken;
+    private boolean out;
+
+    public int getBallsTaken() {
+        return ballsTaken;
+    }
+
+    public void setBallsTaken(int ballsTaken) {
+        this.ballsTaken = ballsTaken;
+    }
 
     public static Player getInstance(){
         return new Player();
@@ -40,5 +50,13 @@ public class Player {
 
     public void setPlayerRole(String playerRole) {
         this.playerRole = playerRole;
+    }
+
+    public boolean isOut() {
+        return out;
+    }
+
+    public void setOut(boolean out) {
+        this.out = out;
     }
 }
