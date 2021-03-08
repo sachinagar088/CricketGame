@@ -10,12 +10,13 @@ public class TeamCreation {
         return new TeamCreation();
     }
 
-    public Team add(int id){
-        System.out.println("Enter team Details");
-        System.out.println();
+    public Team createTeam(int id){
+        System.out.println("\nEnter team "+id+" Details\n");
         Scanner sc=new Scanner(System.in);
         List<Player> pl= new ArrayList<>();
         Team t=Team.getInstance();
+        System.out.println("Enter Team Name");
+        t.setTeamName(sc.next());
         for(int i=0;i<3;i++){
             Player p= Player.getInstance();
             System.out.println("Enter Player Id");
@@ -25,6 +26,7 @@ public class TeamCreation {
             System.out.println("Enter Player Role");
             p.setPlayerRole(sc.next());
             p.setRunsScored(0);
+            p.setBallsTaken(0);
             pl.add(p);
         }
         t.setTeamID(id);
@@ -32,11 +34,5 @@ public class TeamCreation {
         t.setTotalWicketsFall(0);
         t.setTeamScore(0);
         return t;
-    }
-    public void view (Team t){
-        System.out.println("Team ID : "+ t.getTeamID());
-        for(Player p : t.getPlayers()) {
-            System.out.println(p.getPlayerId() + " " + p.getName() + " " + p.getPlayerRole());
-        }
     }
 }
