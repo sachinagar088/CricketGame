@@ -4,3 +4,8 @@
 2. Individual Bowlers wicketsTaken and runsGiven are recorded.
 3. Refactor the code of FirstInnings and secondInnings into one.
 4. Added the Util Class
+
+# TODO
+
+1. Strategy patterns for getting the nextPlayer.
+2. Over functionality.
