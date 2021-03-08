@@ -9,3 +9,5 @@
 
 1. Strategy patterns for getting the nextPlayer.
 2. Over functionality.
+
+For testing Purpose total wickets is set to 2
