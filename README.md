@@ -10,5 +10,6 @@
 
 1. Strategy patterns for getting the nextPlayer.
 2. Over functionality.
+3. random probabilitic function to return score based on batsman and bowler.
 
 For testing Purpose total wickets is set to 2
