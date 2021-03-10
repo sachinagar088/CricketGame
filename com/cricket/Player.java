@@ -6,7 +6,8 @@ public class Player {
     private String playerRole;
     private int runsScored;
     private int ballsTaken;
-    private boolean out;
+    private int strikeRate;
+    private boolean outStatus;
 
     public int getBallsTaken() {
         return ballsTaken;
@@ -14,10 +15,6 @@ public class Player {
 
     public void setBallsTaken(int ballsTaken) {
         this.ballsTaken = ballsTaken;
-    }
-
-    public static Player getInstance(){
-        return new Player();
     }
 
     public int getRunsScored() {
@@ -52,11 +49,19 @@ public class Player {
         this.playerRole = playerRole;
     }
 
-    public boolean isOut() {
-        return out;
+    public boolean isOutStatus() {
+        return outStatus;
     }
 
-    public void setOut(boolean out) {
-        this.out = out;
+    public void setOutStatus(boolean outStatus) {
+        this.outStatus = outStatus;
+    }
+
+    public int getStrikeRate() {
+        return strikeRate;
+    }
+
+    public void setStrikeRate(int strikeRate) {
+        this.strikeRate = strikeRate;
     }
 }

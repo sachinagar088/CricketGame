@@ -6,9 +6,6 @@ public class Bowler extends Player{
     private int runsGiven;
     private float oversDone;
 
-    public static Bowler getInstance(){
-        return new Bowler();
-    }
     public int getWicketsTaken() {
         return wicketsTaken;
     }

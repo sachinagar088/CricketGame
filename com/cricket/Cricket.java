@@ -1,14 +1,11 @@
 package com.cricket;
 
 public class Cricket {
-    private int totalOvers;
-    private int totalWickets;
     private int battingFirstScore;
     private int teamBattingFirst;
+    private final static int noOfOvers = 2;
+    private final static int totalWickets = 2;
 
-    public static Cricket getInstance(){
-        return new Cricket();
-    }
     public int getTeamBattingFirst() {
         return teamBattingFirst;
     }
@@ -25,19 +22,11 @@ public class Cricket {
         this.battingFirstScore = battingFirstScore;
     }
 
-    public int getTotalWickets() {
+    public static int getNoOfOvers() {
+        return noOfOvers;
+    }
+
+    public static int getTotalWickets() {
         return totalWickets;
-    }
-
-    public void setTotalWickets(int totalWickets) {
-        this.totalWickets = totalWickets;
-    }
-
-    public int getTotalOvers() {
-        return totalOvers;
-    }
-
-    public void setTotalOvers(int totalOvers) {
-        this.totalOvers = totalOvers;
     }
 }

@@ -2,7 +2,6 @@ package com.cricket;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Team {
     private int teamID;
@@ -12,10 +11,6 @@ public class Team {
     private int totalWicketsFall;
     private int teamScore;
 
-    public static Team getInstance(){
-        return new Team();
-    }
-
     public int getTeamScore() {
         return teamScore;
     }
@@ -23,6 +18,7 @@ public class Team {
     public void setTeamScore(int teamScore) {
         this.teamScore = teamScore;
     }
+
     public String getTeamName() {
         return teamName;
     }
@@ -30,6 +26,7 @@ public class Team {
     public void setTeamName(String teamName) {
         this.teamName = teamName;
     }
+
     public int getTotalWicketsFall() {
         return totalWicketsFall;
     }
@@ -61,8 +58,9 @@ public class Team {
     public void setBowlers(List<Bowler> bowlers) {
         this.bowlers = bowlers;
     }
-    public Bowler getBowler(){
-        return bowlers.get(new Random().nextInt(bowlers.size()));
+
+    public Bowler getBowler(int next){
+        return bowlers.get(next % bowlers.size());
     }
     public Player getNextBatsman(int next){
         return players.get(next);
@@ -70,9 +68,11 @@ public class Team {
     public void addPlayer(Player player){
         players.add(player);
     }
+
     public void addBowler(Bowler bowler){
         bowlers.add(bowler);
     }
+
     @Override
     public String toString() {
         StringBuilder s= new StringBuilder();
