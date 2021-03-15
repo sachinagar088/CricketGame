@@ -1,5 +1,5 @@
 # CricketGame
 
-1. Added Over Functionality.
-2. Added Wicket Functionality.
-3. Added random probablistic function.
+1. Added all basic functionalities;
+2. Added JDBC connection and created the repository for each table.
+3. created insert and retrieve methods.
